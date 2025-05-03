@@ -1,8 +1,4 @@
-$CXX $CXXFLAGS -std=c++17 -g \
-    main.cpp \
-    parser/HTMLParser.cpp \
-    tree/HTMLElement.cpp \
-    tree/HTMLAttribute.cpp \
-    -o html_parser \
+#!/bin/bash -eu
 
-cp -r html_parser $OUT
+make CXX=${CXX} CXXFLAGS=${CXXFLAGS}
+cp html_parser $OUT/

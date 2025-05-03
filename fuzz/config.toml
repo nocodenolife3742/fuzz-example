@@ -1,7 +1,6 @@
 # Configuration of the fuzzing process
 [fuzz]
 command = "./html_parser @@" 
-input = "input"
 sanitizer = ["address", "undefined"]
 
 # Environment variables during runtime

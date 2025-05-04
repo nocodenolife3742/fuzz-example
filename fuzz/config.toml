@@ -1,9 +1,15 @@
-# Configuration of the fuzzing process
+# Project configurations
+[project]
+name = "fuzz-example"           # Name of the fuzzing project
+directory = "$SRC/fuzz-example" # Directory containing the fuzz target
+tests = "$SRC/input"            # Directory containing the test cases to evaluate fixes
+
+# Fuzzing process configurations
 [fuzz]
-command = "./html_parser @@" 
-sanitizer = ["address", "undefined"]
+command = "./html_parser @@"         # @@ is replaced with the input file path 
+sanitizer = ["address", "undefined"] # Sanitizers to use during fuzzing
+seeds = "$SRC/input"                 # Directory containing seed files for the fuzzer
 
 # Environment variables during runtime
 [environment]
-AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES = "1"
-
+AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES = "1" # Extra environment variable for fuzzing
